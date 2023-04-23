@@ -1,0 +1,25 @@
+{
+  "name": "rig-helper",
+  "version": "1.0.0",
+  "main": "cjs/index.js",
+  "module": "esm/index.js",
+  "exports": {
+    ".": {
+      "import": "./esm/index.js",
+      "require": "./cjs/index.js"
+    }
+  },
+  "repository": "git@github.com:FlashHand/rig-helper.git",
+  "author": "wangbo03 <taotieyishui@gmail.com>",
+  "license": "MIT",
+  "scripts": {
+    "build:esm": "esbuild src/index.ts --bundle --platform=node --format=esm --outdir=esm && tsc --emitDeclarationOnly --declaration --outDir esm",
+    "build:cjs": "esbuild src/index.ts --bundle --platform=node --outdir=cjs && tsc --emitDeclarationOnly --declaration --outDir cjs",
+    "build": "yarn build:esm && yarn build:cjs"
+  },
+  "devDependencies": {
+    "@types/json5": "^2.2.0",
+    "@types/node": "^18.16.0",
+    "json5": "^2.2.3"
+  }
+}
