@@ -15,7 +15,8 @@
   "scripts": {
     "build:esm": "esbuild src/index.ts --bundle --platform=node --format=esm --outdir=esm && tsc --emitDeclarationOnly --declaration --outDir esm",
     "build:cjs": "esbuild src/index.ts --bundle --platform=node --outdir=cjs && tsc --emitDeclarationOnly --declaration --outDir cjs",
-    "build": "yarn build:esm && yarn build:cjs"
+    "build": "yarn build:esm && yarn build:cjs",
+    "deliver": "npm publish --registry=https://registry.npmjs.org"
   },
   "devDependencies": {
     "@types/json5": "^2.2.0",
