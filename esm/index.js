@@ -1137,23 +1137,21 @@ var require_lib = __commonJS({
 });
 
 // src/index.ts
+var import_json5 = __toESM(require_lib());
 import fs from "fs";
-var require_src = __commonJS({
-  "src/index.ts"(exports, module) {
-    var import_json5 = __toESM(require_lib());
-    var getRigDeps = () => {
-      let rigConfig = import_json5.default.parse(fs.readFileSync("./package.rig.json5").toString());
-      return Object.keys(rigConfig.dependencies);
-    };
-    var getRigGlobs = () => {
-      let rigConfig = import_json5.default.parse(fs.readFileSync("./package.rig.json5").toString());
-      return Object.keys(rigConfig.dependencies).map((dep) => `!**/${dep}/**`);
-    };
-    module.exports = {
-      getPkgs: getRigDeps,
-      getRigDeps,
-      getRigGlobs
-    };
-  }
-});
-export default require_src();
+var getRigDeps = () => {
+  let rigConfig = import_json5.default.parse(fs.readFileSync("./package.rig.json5").toString());
+  return Object.keys(rigConfig.dependencies);
+};
+var getRigGlobs = () => {
+  let rigConfig = import_json5.default.parse(fs.readFileSync("./package.rig.json5").toString());
+  return Object.keys(rigConfig.dependencies).map((dep) => `!**/${dep}/**`);
+};
+var src_default = {
+  getPkgs: getRigDeps,
+  getRigDeps,
+  getRigGlobs
+};
+export {
+  src_default as default
+};

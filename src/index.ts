@@ -8,7 +8,7 @@ const getRigGlobs = () => {
 	let rigConfig = json5.parse(fs.readFileSync('./package.rig.json5').toString());
 	return Object.keys(rigConfig.dependencies).map(dep=>`!**/${dep}/**`);
 }
-module.exports = {
+export default {
 	getPkgs: getRigDeps,
 	getRigDeps,
 	getRigGlobs
